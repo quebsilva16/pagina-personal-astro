@@ -1,0 +1,79 @@
+---
+---
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Miguel del Angel Queb Silva</span>
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#visual">Visual</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#blog">Blog</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Cambiar tema">
+        <svg id="icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/>
+          <line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+          <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/>
+          <line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+          <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+        </svg>
+        <svg id="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const html = document.documentElement;
+  const btn  = document.getElementById('themeToggle')!;
+  const sun  = document.getElementById('icon-sun')!;
+  const moon = document.getElementById('icon-moon')!;
+
+  const saved = localStorage.getItem('theme') || 'dark';
+  if (saved === 'light') { sun.style.display = 'none'; moon.style.display = ''; }
+
+  btn.addEventListener('click', () => {
+    const isDark = html.dataset.theme === 'dark';
+    html.dataset.theme = isDark ? 'light' : 'dark';
+    localStorage.setItem('theme', html.dataset.theme);
+    sun.style.display  = isDark ? '' : 'none';
+    moon.style.display = isDark ? 'none' : '';
+  });
+</script>
+
+<style>
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg) 75%, transparent);
+    backdrop-filter: blur(24px) saturate(160%);
+  }
+  .nav-inner {
+    max-width: 1100px; margin-inline: auto;
+    padding-inline: 36px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-name {
+    font-family: var(--font-d); font-size: .82rem;
+    font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .nav-name span { color: var(--green); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: .75rem; font-weight: 500;
+    color: var(--ink-3); letter-spacing: .04em; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .theme-btn {
+    background: none; border: 1px solid var(--border2);
+    border-radius: 6px; cursor: none;
+    color: var(--ink-3); padding: 5px 7px;
+    line-height: 0; transition: color .2s, border-color .2s;
+  }
+  .theme-btn:hover { color: var(--green); border-color: var(--green); }
+  @media (max-width: 768px) {
+    .nav-inner { padding-inline: 20px; }
+    .nav-links a:not(:last-child) { display: none; }
+  }
+</style>

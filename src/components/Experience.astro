@@ -1,0 +1,41 @@
+---
+const jobs = [
+  { years: '2023<br/>Presente', role: 'Diseñador de Producto',  company: 'Empresa SaaS B2B · Remoto',              desc: 'Liderando rediseño del sistema de diseño. Reducción del 40% en tiempo de onboarding.' },
+  { years: '2021<br/>2023',     role: 'Frontend Developer',     company: 'Agencia Digital · Ciudad de México',     desc: 'Interfaces para clientes en fintech y educación. Stack: React, TypeScript, Tailwind.' },
+  { years: '2019<br/>2021',     role: 'Diseñador UI/UX',        company: 'Startup Edtech · Guadalajara',           desc: 'Primer diseñador del equipo. Diseño completo hasta 10K usuarios activos.' },
+  { years: '2017<br/>2019',     role: 'Freelance',              company: 'Independiente',                          desc: 'Branding, web y motion para clientes en México y España.' },
+];
+---
+<section id="experiencia">
+  <div class="section-inner">
+    <p class="eyebrow r-up">Experiencia</p>
+    <div class="timeline">
+      {jobs.map((job, i) => (
+        <div class={`tl-item r-up${i > 0 ? ` d${i}` : ''}`}>
+          <span class="tl-year" set:html={job.years}></span>
+          <div>
+            <h3 class="tl-role">{job.role}</h3>
+            <p class="tl-co">{job.company}</p>
+            <p class="tl-desc">{job.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item {
+    display: grid; grid-template-columns: 120px 1fr; gap: 0 32px;
+    padding-block: 32px; border-bottom: 1px solid var(--border);
+    border-radius: 12px; transition: background .2s, padding-inline .3s var(--ease);
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-item:hover { background: var(--bg-2); padding-inline: 20px; margin-inline: -20px; }
+  .tl-year { font-family: var(--font-d); font-size: .72rem; font-weight: 700; color: var(--ink-3); letter-spacing: .06em; padding-top: 4px; line-height: 1.6; }
+  .tl-role { font-family: var(--font-d); font-size: 1.05rem; font-weight: 800; margin-bottom: 3px; line-height: 1.2; }
+  .tl-co { font-size: .8rem; color: var(--green); font-weight: 600; margin-bottom: 10px; }
+  .tl-desc { font-size: .8rem; line-height: 1.6; }
+  @media (max-width: 768px) { .tl-item { grid-template-columns: 80px 1fr; gap: 0 16px; } }
+</style>

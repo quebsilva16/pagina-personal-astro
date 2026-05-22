@@ -1,0 +1,36 @@
+---
+const items = [
+  { icon: '🏆', title: 'Premio Nacional de Diseño', detail: 'Finalista categoría Diseño Digital 2022 por el proyecto Mapa Sonoro.' },
+  { icon: '🌍', title: 'Speaker en Config',         detail: 'Charla sobre sistemas de diseño en equipos pequeños, Figma 2023.' },
+  { icon: '✍️', title: '+50K lectores',             detail: 'Newsletter sobre diseño y tecnología con 50,000 suscriptores activos.' },
+  { icon: '⭐', title: 'Open Source',               detail: 'Tres librerías con +2,000 estrellas en GitHub. Contribuciones desde 14 países.' },
+];
+---
+<section id="logros">
+  <div class="section-inner">
+    <p class="eyebrow r-up">Logros</p>
+    <div class="ach-grid">
+      {items.map((a, i) => (
+        <div class={`ach-card r-scale d${i + 1}`}>
+          <div class="ach-icon">{a.icon}</div>
+          <h3 class="ach-title">{a.title}</h3>
+          <p class="ach-detail">{a.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ach-card {
+    background: var(--bg-2); border: 1px solid var(--border);
+    border-radius: 14px; padding: 26px 28px;
+    transition: border-color .25s, background .25s, transform .3s var(--ease);
+  }
+  .ach-card:hover { border-color: oklch(0.72 0.20 285 / .45); background: var(--violet-d); transform: translateY(-2px); }
+  .ach-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 18px; }
+  .ach-title { font-family: var(--font-d); font-size: .94rem; font-weight: 800; margin-bottom: 8px; }
+  .ach-detail { font-size: .79rem; line-height: 1.6; }
+  @media (max-width: 768px) { .ach-grid { grid-template-columns: 1fr; } }
+</style>

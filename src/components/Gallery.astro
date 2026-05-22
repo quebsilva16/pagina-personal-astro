@@ -1,0 +1,109 @@
+---
+---
+<section id="visual">
+  <div class="section-inner">
+    <p class="eyebrow r-up">Visual / Fotografía</p>
+    <div class="gallery-grid">
+
+      <div class="gallery-card gc-1 tall r-scale">
+        <div class="ph">
+          <div class="ph-stripe ph-stripe-a"></div>
+          <div class="ph-label">
+            <span class="ph-icon">📷</span>
+            <span class="ph-text">Fotografía análoga<br />Canonet QL17</span>
+          </div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-text">
+            Oaxaca, 2024
+            <div class="gallery-overlay-sub">Fotografía análoga · Canonet QL17 · Kodak 400</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card gc-2 r-up d1">
+        <div class="ph">
+          <div class="ph-stripe ph-stripe-b"></div>
+          <div class="ph-label"><span class="ph-icon">🎨</span><span class="ph-text">Diseño UI</span></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-text">Mapa Sonoro UI<div class="gallery-overlay-sub">Diseño de interfaz · 2023</div></div>
+        </div>
+      </div>
+
+      <div class="gallery-card gc-3 r-up d2">
+        <div class="ph">
+          <div class="ph-stripe ph-stripe-c"></div>
+          <div class="ph-label"><span class="ph-icon">✏️</span><span class="ph-text">Tipografía</span></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-text">Colonial Type<div class="gallery-overlay-sub">Diseño tipográfico · 2022</div></div>
+        </div>
+      </div>
+
+      <div class="gallery-card gc-4 r-up d3">
+        <div class="ph">
+          <div class="ph-stripe ph-stripe-d"></div>
+          <div class="ph-label"><span class="ph-icon">🌆</span><span class="ph-text">Ciudad</span></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-text">Campeche, amanecer<div class="gallery-overlay-sub">Fotografía digital · 2024</div></div>
+        </div>
+      </div>
+
+      <div class="gallery-card gc-5 r-up d4">
+        <div class="ph">
+          <div class="ph-stripe ph-stripe-e"></div>
+          <div class="ph-label"><span class="ph-icon">🖥️</span><span class="ph-text">Motion</span></div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="gallery-overlay-text">Animación UI<div class="gallery-overlay-sub">Motion design · 2023</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-grid {
+    display: grid; grid-template-columns: 3fr 2fr 2fr;
+    grid-template-rows: 220px 220px; gap: 12px;
+  }
+  .gallery-card {
+    border-radius: 14px; overflow: hidden; position: relative;
+    border: 1px solid var(--border); background: var(--bg-2);
+    transition: transform .4s var(--ease), border-color .3s;
+  }
+  .gallery-card:hover { transform: scale(1.02); border-color: var(--border2); }
+  .gallery-card.tall { grid-row: span 2; }
+  .gallery-card .ph { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  .gallery-card .ph-stripe { position: absolute; inset: 0; }
+  .ph-stripe-a { background: repeating-linear-gradient(135deg, transparent, transparent 20px, rgba(255,255,255,.025) 20px, rgba(255,255,255,.025) 21px); }
+  .ph-stripe-b { background: repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(255,255,255,.02) 14px, rgba(255,255,255,.02) 15px); }
+  .ph-stripe-c { background: repeating-linear-gradient(120deg, transparent, transparent 24px, rgba(255,255,255,.018) 24px, rgba(255,255,255,.018) 25px); }
+  .ph-stripe-d { background: repeating-linear-gradient(160deg, transparent, transparent 18px, rgba(255,255,255,.022) 18px, rgba(255,255,255,.022) 19px); }
+  .ph-stripe-e { background: repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,.015) 30px, rgba(255,255,255,.015) 31px); }
+  .gc-1 .ph-stripe { background-color: oklch(0.72 0.20 285 / .18); }
+  .gc-2 .ph-stripe { background-color: oklch(0.80 0.22 140 / .12); }
+  .gc-3 .ph-stripe { background-color: oklch(0.70 0.18 30 / .15); }
+  .gc-4 .ph-stripe { background-color: oklch(0.75 0.16 200 / .15); }
+  .gc-5 .ph-stripe { background-color: oklch(0.72 0.20 285 / .10); }
+  .ph-label { position: relative; z-index: 1; text-align: center; }
+  .ph-icon { font-size: 2rem; margin-bottom: 6px; display: block; }
+  .ph-text { font-family: monospace; font-size: .68rem; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(9,11,24,.9) 0%, transparent 50%);
+    opacity: 0; transition: opacity .35s;
+    display: flex; align-items: flex-end; padding: 20px;
+  }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay-text { font-family: var(--font-d); font-size: .82rem; font-weight: 700; color: var(--ink); line-height: 1.3; }
+  .gallery-overlay-sub { font-size: .7rem; color: var(--ink-2); font-weight: 400; margin-top: 3px; }
+  [data-theme="light"] .gallery-overlay { background: linear-gradient(to top, rgba(20,15,50,.85) 0%, transparent 50%); }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 160px 160px 160px; }
+    .gallery-card.tall { grid-row: span 1; }
+  }
+</style>

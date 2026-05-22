@@ -1,0 +1,37 @@
+---
+---
+<div id="cursor"></div>
+<div id="cursor-glow"></div>
+
+<script>
+  const cur  = document.getElementById('cursor')!;
+  const glow = document.getElementById('cursor-glow')!;
+  let mx = 0, my = 0, gx = 0, gy = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx + 'px';
+    cur.style.top  = my + 'px';
+  });
+
+  (function animGlow() {
+    gx += (mx - gx) * 0.06;
+    gy += (my - gy) * 0.06;
+    glow.style.left = gx + 'px';
+    glow.style.top  = gy + 'px';
+    requestAnimationFrame(animGlow);
+  })();
+
+  document.querySelectorAll('a, button, .project-card, .gallery-card, .life-card, .blog-item').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.width = '24px';
+      cur.style.height = '24px';
+      cur.style.opacity = '.6';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.width = '10px';
+      cur.style.height = '10px';
+      cur.style.opacity = '1';
+    });
+  });
+</script>

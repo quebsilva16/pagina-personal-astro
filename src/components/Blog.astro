@@ -1,0 +1,33 @@
+---
+const posts = [
+  { title: 'El diseño que no se ve es el diseño que funciona',                    date: 'Mar 2024' },
+  { title: 'Por qué dejé de usar Figma para idear y volví al papel',             date: 'Ene 2024' },
+  { title: 'Construir solo, lento y con intención: notas sobre el indie making', date: 'Nov 2023' },
+];
+---
+<section id="blog">
+  <div class="section-inner">
+    <p class="eyebrow r-up">Escritura</p>
+    <div class="blog-list">
+      {posts.map((p, i) => (
+        <a href="#" class={`blog-item r-up d${i + 1}`}>
+          <span class="blog-t">{p.title}</span>
+          <span class="blog-d">{p.date}</span>
+        </a>
+      ))}
+    </div>
+    <a href="#" class="blog-cta r-up d4">Ver todos los artículos →</a>
+  </div>
+</section>
+
+<style>
+  .blog-list { display: flex; flex-direction: column; }
+  .blog-item { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 20px; padding-block: 22px; border-bottom: 1px solid var(--border); transition: padding-left .3s var(--ease); cursor: none; }
+  .blog-item:first-child { border-top: 1px solid var(--border); }
+  .blog-item:hover { padding-left: 16px; }
+  .blog-t { font-family: var(--font-d); font-size: 1rem; font-weight: 700; color: var(--ink); transition: color .2s; line-height: 1.25; }
+  .blog-item:hover .blog-t { color: var(--green); }
+  .blog-d { font-size: .7rem; color: var(--ink-3); font-weight: 700; letter-spacing: .08em; font-family: var(--font-d); white-space: nowrap; }
+  .blog-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: 28px; font-family: var(--font-d); font-size: .76rem; font-weight: 800; color: var(--green); letter-spacing: .06em; text-transform: uppercase; transition: gap .2s; }
+  .blog-cta:hover { gap: 14px; }
+</style>
