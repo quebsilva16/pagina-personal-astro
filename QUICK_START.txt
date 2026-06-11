@@ -1,0 +1,36 @@
+⚡ INICIO RÁPIDO - GitHub Integration
+
+1. EDITA .env.local
+   Abre: .env.local
+   Cambia: GITHUB_USERNAME=tu-usuario
+
+   Ejemplo:
+   GITHUB_USERNAME=queb
+   GITHUB_TOKEN=  (opcional)
+
+2. INICIA EL SERVIDOR
+   Terminal:
+   $ cd /home/queb/Documents/Personal/pagina-personal-astro
+   $ pnpm run dev
+
+3. ABRE EN EL NAVEGADOR
+   http://localhost:3000
+
+4. VER LOS COMPONENTES
+   - GitHubStats → Entre Projects y Gallery
+   - GitHubRepositories → Entre Gallery y Experience
+   - GitHubWidget → Antes del Footer
+
+---
+
+ESTO ES OPCIONAL:
+Si quieres más límite de requests de la API de GitHub:
+- Ve a: https://github.com/settings/tokens
+- Crea un token personal (public_repo)
+- Cópialo en .env.local como GITHUB_TOKEN=...
+
+---
+
+¿PROBLEMAS?
+Revisa: GITHUB_INTEGRATION.md
+

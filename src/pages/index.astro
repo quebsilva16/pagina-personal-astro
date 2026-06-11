@@ -11,6 +11,9 @@ import Experience from '../components/Experience.astro';
 import Achievements from '../components/Achievements.astro';
 import Life from '../components/Life.astro';
 import Blog from '../components/Blog.astro';
+import GitHubRepositories from '../components/GitHubRepositories.astro';
+import GitHubStats from '../components/GitHubStats.astro';
+import GitHubWidget from '../components/GitHubWidget.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -23,11 +26,16 @@ import Footer from '../components/Footer.astro';
     <Marquee />
     <NowBar />
     <Projects />
+    <GitHubStats />
     <Gallery />
+    <GitHubRepositories />
     <Experience />
     <Achievements />
     <Life />
     <Blog />
   </main>
+  <div class="section-inner" style="display: flex; justify-content: center; margin-block: 40px;">
+    <GitHubWidget />
+  </div>
   <Footer />
 </Layout>

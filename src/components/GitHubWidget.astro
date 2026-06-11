@@ -1,0 +1,142 @@
+---
+import { getGitHubStats } from '../lib/github';
+
+const stats = await getGitHubStats();
+---
+
+{stats && (
+  <div class="github-widget r-up">
+    <div class="widget-header">
+      <img src={stats.avatar} alt={stats.name} class="avatar" />
+      <div class="widget-info">
+        <h3 class="widget-name">{stats.name || 'GitHub User'}</h3>
+        <p class="widget-bio">{stats.bio}</p>
+        {stats.location && <p class="widget-location">📍 {stats.location}</p>}
+      </div>
+    </div>
+
+    <div class="widget-stats">
+      <div class="stat">
+        <span class="stat-value">{stats.publicRepos}</span>
+        <span class="stat-label">Repositorios</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{stats.followers}</span>
+        <span class="stat-label">Seguidores</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{stats.following}</span>
+        <span class="stat-label">Siguiendo</span>
+      </div>
+    </div>
+
+    <a href={`https://github.com/${import.meta.env.GITHUB_USERNAME || 'queb'}`} target="_blank" rel="noopener" class="widget-link">
+      Ver en GitHub →
+    </a>
+  </div>
+)}
+
+<style>
+  .github-widget {
+    background: var(--bg-2);
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 320px;
+    transition: all .3s var(--ease);
+  }
+
+  .github-widget:hover {
+    border-color: var(--violet);
+    background: var(--bg-3);
+    transform: translateY(-2px);
+  }
+
+  .widget-header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--border2);
+  }
+
+  .widget-info {
+    flex: 1;
+  }
+
+  .widget-name {
+    font-family: var(--font-d);
+    font-size: .95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+
+  .widget-bio {
+    font-size: .75rem;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .widget-location {
+    font-size: .7rem;
+    color: var(--ink-3);
+    margin: 4px 0 0 0;
+  }
+
+  .widget-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-family: var(--font-d);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--violet);
+  }
+
+  .stat-label {
+    font-size: .65rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .widget-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-d);
+    font-size: .76rem;
+    font-weight: 800;
+    color: var(--violet);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    transition: gap .2s var(--ease);
+  }
+
+  .widget-link:hover {
+    gap: 12px;
+  }
+</style>
+
